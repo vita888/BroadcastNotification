@@ -34,12 +34,12 @@ public class MyBroadcastReciever extends BroadcastReceiver {
 
         builder1.setSmallIcon(R.mipmap.ic_launcher);
         builder1.setContentTitle("提示");
-        builder1.setContentText("天使天使天使");
-
-        builder1.setTicker("notification来了");
+        builder1.setContentText("enjoy summer days");
+        builder1.setSubText("notification");
+        builder1.setTicker("this is a notification");
         builder1.setAutoCancel(false);
 
-        Intent mIntent = new Intent(context,OtherActivity.class);
+        Intent mIntent = new Intent(context,MainActivity.class);
         Log.d(TAG, "contexd: "+context+"；Otheractivity.class："+OtherActivity.class);
         PendingIntent pi = PendingIntent.getActivity(context,0, mIntent,0);
         builder1.setContentIntent(pi);
@@ -47,6 +47,7 @@ public class MyBroadcastReciever extends BroadcastReceiver {
 
         notifyMgr.notify(1,notify1);
     }
+
 
 }
 
