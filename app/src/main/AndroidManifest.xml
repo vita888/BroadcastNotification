@@ -8,8 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.AppCompat">
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,8 +18,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".OtherActivity"/>
-        <!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>-->
-
+        <receiver android:name=".MyBroadcastReciever">
+            <intent-filter>
+                <action android:name="com.example.vita.broadcastnotification1"/>
+            </intent-filter>
+        </receiver>
     </application>
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 </manifest>

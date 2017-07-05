@@ -19,16 +19,20 @@ public class MyBroadcastReciever extends BroadcastReceiver {
     private static  final  String TAG = "########";
     private NotificationManager notifyMgr;
     private NotificationCompat.Builder builder1;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "intent "+intent);
-        sendNotification(context);
+        String text = intent.getStringExtra("name");
+
+        sendNotification(context,text);
+
 
     }
 
 
 //    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    private void  sendNotification(Context context){
+    private void  sendNotification(Context context,String text){
         notifyMgr = (NotificationManager)  context.getSystemService(Context.NOTIFICATION_SERVICE);
         builder1 = new NotificationCompat.Builder(context);
 
@@ -36,7 +40,7 @@ public class MyBroadcastReciever extends BroadcastReceiver {
         builder1.setContentTitle("提示");
         builder1.setContentText("enjoy summer days");
         builder1.setSubText("notification");
-        builder1.setTicker("this is a notification");
+        builder1.setTicker(text);
         builder1.setAutoCancel(false);
 
         Intent mIntent = new Intent(context,MainActivity.class);
@@ -45,7 +49,10 @@ public class MyBroadcastReciever extends BroadcastReceiver {
         builder1.setContentIntent(pi);
         Notification notify1=builder1.build();
 
-        notifyMgr.notify(1,notify1);
+
+        // int i = (int) Math.round(Math.random()*10);
+            notifyMgr.notify(1, notify1);
+
     }
 
 

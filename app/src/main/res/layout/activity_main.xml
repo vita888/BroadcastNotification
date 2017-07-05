@@ -5,10 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.vita.broadcastnotification.MainActivity">
+
     <ImageView
+        android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/watermelon"/>
+        android:background="@mipmap/watermelon"
+        android:clickable="true" />
 
 
 </LinearLayout>
